@@ -1,0 +1,30 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "globals": {
+    "__PATH_PREFIX__": true
+  },
+  "extends": ["eslint:recommended", "next/core-web-vitals", "next/typescript", "plugin:react/recommended", "prettier"],
+  "rules": {
+    "eqeqeq": "warn",
+    "import/no-extraneous-dependencies": "off",
+    "jsx-quotes": "warn",
+    "no-alert": "warn",
+    "no-console": "warn",
+    "no-trailing-spaces": "error",
+    "no-undef-init": "error",
+    "no-unused-vars": "error",
+    "no-use-before-define": "error",
+    "react/require-default-props": "off",
+    "quotes": "warn",
+    "semi": "warn"
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "prettier"],
+  "ignorePatterns": ["components/*"]
+}
