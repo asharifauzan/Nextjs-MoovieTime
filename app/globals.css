@@ -88,4 +88,13 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Custom styles */
+  .title {
+    @apply font-semibold text-2xl;
+  }
+
+  .separator-accent {
+    @apply !w-[112px] !h-1.5 !mb-3 !bg-[#E74C3C];
+  }
 }

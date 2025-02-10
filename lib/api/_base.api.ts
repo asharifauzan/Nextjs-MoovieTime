@@ -14,14 +14,46 @@ const BaseAPI = Axios.create({
   },
 });
 
+export type MovieType = {
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+};
+
 export const TmdbAPI = {
   /**
-   * Get Popular movies
+   * Get List of Popular movies
    *
    * Read more: https://developer.themoviedb.org/reference/movie-popular-list
    */
-  async getPopularMovies() {
-    const response = await BaseAPI.get("/3/movie/popular");
+  async getPopularMovies({ genres, page }: { genres?: string; page?: number }) {
+    const response = await BaseAPI.get("/3/movie/popular", {
+      params: {
+        with_genres: genres,
+        page,
+      },
+    });
+    return response;
+  },
+
+  /**
+   * Get List of Upcoming Movies
+   *
+   * Read more: https://developer.themoviedb.org/reference/movie-upcoming-list
+   */
+  async getUpcomingMovies() {
+    const response = await BaseAPI.get("3/movie/upcoming");
     return response;
   },
 
@@ -32,6 +64,16 @@ export const TmdbAPI = {
    */
   async getMovieGenres() {
     const response = await BaseAPI.get("/3/genre/movie/list");
+    return response;
+  },
+
+  /**
+   * Get detail movie by id
+   *
+   * Read more: https://developer.themoviedb.org/reference/movie-details
+   */
+  async getMovieById(id: number) {
+    const response = await BaseAPI.get(`/3/movie/${id}`);
     return response;
   },
 };
