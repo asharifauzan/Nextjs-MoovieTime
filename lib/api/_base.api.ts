@@ -76,4 +76,14 @@ export const TmdbAPI = {
     const response = await BaseAPI.get(`/3/movie/${id}`);
     return response;
   },
+
+  /**
+   * Get recommendation from specific movie
+   *
+   * Read more: https://api.themoviedb.org/3/movie/{movie_id}/recommendations
+   */
+  async getRecommendationFromMovie(id: number) {
+    const response = await BaseAPI.get(`3/movie/${id}/recommendations`);
+    return response;
+  },
 };
