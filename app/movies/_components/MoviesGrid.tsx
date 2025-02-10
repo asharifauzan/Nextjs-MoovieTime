@@ -27,7 +27,7 @@ export default function MoviesGrid({
               height={330}
             />
             <p>{movie.title}</p>
-            <p>{movie.release_date}</p>
+            <p>{movie.release_date.slice(0, 4)}</p>
             <p className="absolute top-0 right-0 px-[10px] py-[5px] bg-[#1E232B50]">
               {movie.vote_average.toFixed(1)}
             </p>

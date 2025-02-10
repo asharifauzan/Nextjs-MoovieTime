@@ -5,7 +5,7 @@ import MovieTimeGray from "@/assets/images/MoovieTime-Logo-Grey.svg";
 export default function Footer() {
   return (
     <footer>
-      <div className="flex justify-between items-center space-x-[36.9px] pt-[65px] px-[--content-padding] pb-[70.64px]">
+      <div className="flex justify-between items-center space-x-[36.9px] bg-[#15191e] pt-[65px] px-[--content-padding] pb-[70.64px]">
         {/* TODO: appname using .env */}
         <div className="copyright">
           <p>&copy; 2021 MoovieTime. All Right Reserved.</p>
