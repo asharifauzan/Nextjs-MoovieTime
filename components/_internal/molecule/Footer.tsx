@@ -11,7 +11,7 @@ export default function Footer() {
           <p>&copy; 2021 MoovieTime. All Right Reserved.</p>
         </div>
         <div className="logo">
-          <Image src={MovieTimeGray} alt="logo" width="300" />
+          <Image src={MovieTimeGray} alt="logo" width="112" height="31" />
         </div>
         <div className="tech-stack">
           <p>Made with Next.js + Typescript</p>

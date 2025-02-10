@@ -51,10 +51,10 @@ export default function Navbar() {
 
   return (
     <nav>
-      <div className="flex justify-between items-center space-x-[36.9px] px-[--content-padding] py-[17px]">
+      <div className="flex justify-between items-center space-x-[36.9px] bg-[#FFFFFF05] px-[--content-padding] py-[17px]">
         <div className="navbar-brand">
           <Link href="/">
-            <Image src={NavbarImage} alt="home" width="200" />
+            <Image src={NavbarImage} alt="home" width="112" height="31" />
           </Link>
         </div>
 
@@ -77,9 +77,13 @@ export default function Navbar() {
                     onLoad={setGenres}
                     loaded={!!genres?.length}
                   >
-                    <ul>
+                    <ul className="w-[133px]">
                       {genres?.map((genre) => (
-                        <ListItem key={genre.id} title={genre.name} />
+                        <ListItem
+                          key={genre.id}
+                          href={`/movies?genres=${genre.name}`}
+                          title={genre.name}
+                        />
                       ))}
                     </ul>
                   </CategoriesContent>
