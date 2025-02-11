@@ -51,7 +51,6 @@ export default function ListMovie({
   data,
   page,
   totalPages,
-  genres,
 }: SearchParams & {
   data: MovieType[];
   genresOptions: { id: number; name: string }[];
@@ -67,13 +66,11 @@ export default function ListMovie({
     setMovies((prevMovies) => [...prevMovies, ...data]);
   }, [data]);
 
-  const handleFilterGenre = (isChecked: boolean, newGenre: string) => {
+  const handleFilterGenre = (_isChecked: boolean, newGenre: string) => {
     setMovies([]);
     const qsObject = queryString.parse(searchParams.toLocaleString());
     qsObject.page = "1"; // reset page to 1
-    qsObject.genres = !!qsObject.genres?.length
-      ? qsObject.genres.concat(`,${newGenre}`)
-      : newGenre;
+    qsObject.genres = newGenre;
     const qsString = queryString.stringify(qsObject);
 
     router.push(`/movies?${qsString}`);
@@ -136,7 +133,7 @@ export default function ListMovie({
               <h3 className="font-bold my-[11px]">Genres</h3>
               <Separator className="mb-[18px]" />
               {genresOptions?.map((genre) => (
-                <div className="flex justify-between">
+                <div key={genre.id} className="flex justify-between">
                   <p>{genre.name}</p>
                   <Checkbox
                     onCheckedChange={(e) =>

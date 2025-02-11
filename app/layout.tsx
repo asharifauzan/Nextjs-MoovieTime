@@ -1,3 +1,5 @@
+import React from "react";
+
 import Navbar from "@/components/_internal/molecule/Navbar";
 import Footer from "@/components/_internal/molecule/Footer";
 import type { Metadata } from "next";

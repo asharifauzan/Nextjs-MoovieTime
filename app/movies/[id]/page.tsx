@@ -3,7 +3,11 @@ import React from "react";
 import ViewMovie from "../_components/ViewMovie";
 import { type Params } from "next/dist/server/request/params";
 
-export default async function MovieView({ params }: { params: Params }) {
+export default async function MovieView({
+  params,
+}: {
+  params: Promise<Params>;
+}) {
   const { id } = await params;
 
   const response = await TmdbAPI.getMovieById(Number(id));
